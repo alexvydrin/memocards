@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>
+        {% block title %}
+            {{ title|title }}
+        {% endblock %}
+    </title>
+
+    {% block css %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}
+
+    {% block js_my %}
+    {% endblock %}
+
+</head>
+<body>
+	<div class="container">
+        <div class="header">
+            <div class="logo">
+            </div>
+            {% block menu %}
+            {% endblock %}
+        </div>
+
+        {% block content %}
+
+        {% endblock %}
+
+	</div>
+
+    {% block footer %}
+        <div class="footer">
+            <hr>
+            <p> Все права защищены &copy;&nbsp;{% now "Y" %} </p>
+        </div>
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Тэги
+{% endblock %}
+
+{% block menu %}
+    {% include 'mainapp/inc_main_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <h1>Тэги</h1>
+    <hr>
+
+    {% for tag in tags %}
+        <a href="#">{{tag.name}}</a>
+        <br>
+    {% endfor %}
+
+{% endblock %}
