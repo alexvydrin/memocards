@@ -14,9 +14,15 @@
     <h1>Тег</h1>
     <hr>
 
-    <h2>{{ object.name }}</h2>
+    <a href="{% url 'tag_edit' pk=object.pk %}">Изменить тег</a>
+    /
+    <a href="{% url 'tag_delete' pk=object.pk %}">Удалить тег</a>
 
-    <p>здесь будет список карточек с этим тегом</p>
+    <hr>
+    <h2>{{ object.name }}</h2>
+    <hr>
+
+    <p>здесь будет список карточек</p>
 
     <br>
     <p>Автор: {{ object.user }}</p>

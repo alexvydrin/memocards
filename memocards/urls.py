@@ -20,27 +20,20 @@ import mainapp.views as mainapp  # импорт модуля views.py из пр�
 urlpatterns = [
     path('', mainapp.main, name='main'),
 
-    # path('cards/', mainapp.cards, name='cards'),
-    path('cards/', mainapp.CardsListView.as_view(), name='cards'),
-
-    # path('cards/<int:pk>/', mainapp.card_detail, name='card_detail'),
+    # Card - Карточки - CBV CRUD:
+    path('cards/', mainapp.CardListView.as_view(), name='cards'),
     path('cards/<int:pk>/', mainapp.CardDetailView.as_view(), name='card_detail'),
-
-    # path('cards/new/', mainapp.card_new, name='card_new'),
-    path('cards/new/', mainapp.ClassCreateView.as_view(), name='card_new'),
-
-    # path('cards/<int:pk>/edit/', mainapp.card_edit, name='card_edit'),
+    path('cards/new/', mainapp.CardCreateView.as_view(), name='card_new'),
     path('cards/<int:pk>/edit/', mainapp.CardUpdateView.as_view(), name='card_edit'),
-
     path('cards/delete/<int:pk>/', mainapp.CardDeleteView.as_view(), name='card_delete'),
 
-    # path('tags/', mainapp.tags, name='tags'),
+    # Tag - Теги - CBV CRUD:
     path('tags/', mainapp.TagsListView.as_view(), name='tags'),
-
     path('tags/<int:pk>/', mainapp.TagDetailView.as_view(), name='tag_detail'),
+    path('tags/new/', mainapp.TagCreateView.as_view(), name='tag_new'),
+    path('tags/<int:pk>/edit/', mainapp.TagUpdateView.as_view(), name='tag_edit'),
+    path('tags/delete/<int:pk>/', mainapp.TagDeleteView.as_view(), name='tag_delete'),
 
     path('admin/', admin.site.urls),
-
     path('accounts/login/', mainapp.LoginView.as_view(), name="login"),
-
 ]
