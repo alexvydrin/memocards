@@ -10,8 +10,6 @@
 {% endblock %}
 
 {% block content %}
-
-
     <hr>
     <h1>Карточка</h1>
     <hr>
@@ -21,10 +19,14 @@
     <a href="{% url 'card_delete' pk=object.pk %}">Удалить карточку</a>
 
     <hr>
-    <h1>{{ object.name }}</h1>
+    <h2>{{ object.name }}</h2>
     <hr>
 
     <p>{{ object.content|linebreaks }}</p>
+
+    <br>
+
+    <p>здесь будет список тегов</p>
 
     <br>
     <p>Автор: {{ object.user }}</p>

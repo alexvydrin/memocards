@@ -37,7 +37,15 @@ class LoginView(TemplateView):
         return render(request, self.template_name, context)
 
 
-class CardsListView(ListView):  # pylint: disable=too-many-ancestors
+# Card - Карточки - CBV CRUD:
+# - CardListView
+# - CardDetailView
+# - CardCreateView
+# - CardUpdateView
+# - CardDeleteView
+
+
+class CardListView(ListView):  # pylint: disable=too-many-ancestors
     """Просмотр списка карточек"""
     model = Card
     template_name = 'mainapp/card_list.html'
@@ -54,24 +62,7 @@ class CardDetailView(DetailView):
     template_name = 'mainapp/card_detail.html'
 
 
-class TagsListView(ListView):  # pylint: disable=too-many-ancestors
-    """Просмотр списка тегов"""
-    model = Tag
-    template_name = 'mainapp/tag_list.html'
-
-    def get_queryset(self):
-        filtered_list = self.model.objects.filter(
-            is_active=True).order_by('name')
-        return filtered_list
-
-
-class TagDetailView(DetailView):
-    """Просмотр выбранного тега"""
-    model = Tag
-    template_name = 'mainapp/tag_detail.html'
-
-
-class ClassCreateView(CreateView):
+class CardCreateView(CreateView):
     """Добавление новой карточки"""
     # в версии FBV использовал форму CardForm:
     model = Card
@@ -120,6 +111,96 @@ class CardDeleteView(DeleteView):
     model = Card
     template_name = 'mainapp/card_delete.html'
     success_url = reverse_lazy('cards')
+
+    def __init__(self, *args, **kwargs):
+        # self.object потом переопределим в def delete
+        # (без определения всех атрибутов в __init__ ругаются линтеры)
+        self.object = None
+        super().__init__(*args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+# Tag - Теги - CBV CRUD:
+# - TagListView
+# - TagDetailView
+# - TagCreateView
+# - TagUpdateView
+# - TagDeleteView
+
+
+class TagsListView(ListView):  # pylint: disable=too-many-ancestors
+    """Просмотр списка тегов"""
+    model = Tag
+    template_name = 'mainapp/tag_list.html'
+
+    def get_queryset(self):
+        filtered_list = self.model.objects.filter(
+            is_active=True).order_by('name')
+        return filtered_list
+
+
+class TagDetailView(DetailView):
+    """Просмотр выбранного тега"""
+    model = Tag
+    template_name = 'mainapp/tag_detail.html'
+
+
+class TagCreateView(CreateView):
+    """Добавление нового тега"""
+    model = Tag
+    template_name = 'mainapp/tag_edit.html'
+    success_url = reverse_lazy('tags')
+    fields = ['name']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Добавление нового тега'
+        return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+class TagUpdateView(UpdateView):
+    """Изменение тега"""
+    model = Tag
+    template_name = 'mainapp/tag_edit.html'
+    success_url = reverse_lazy('tags')
+    fields = ['name']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Изменение тега'
+        return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+class TagDeleteView(DeleteView):
+    """Удаление тега"""
+    model = Tag
+    template_name = 'mainapp/tag_delete.html'
+    success_url = reverse_lazy('tags')
 
     def __init__(self, *args, **kwargs):
         # self.object потом переопределим в def delete
