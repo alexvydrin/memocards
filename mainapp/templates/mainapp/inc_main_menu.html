@@ -1,21 +1,31 @@
 <ul class="menu">
 
     <li>
+        <a href="{% url 'main' %}">
+            Главная страница
+        </a>
+    </li>
+
+    <li>
         <a href="{% url 'cards' %}">
-            Карточки (cards)
+            Карточки
         </a>
     </li>
 
     <li>
         <a href="{% url 'tags' %}">
-            Теги (tags)
+            Теги
         </a>
     </li>
 
     <li>
-        <a href="{% url 'main' %}">
-            Главная страница
-        </a>
+        {% if user.is_authenticated %}
+            пользователь: [{{ user }}]
+        {% else %}
+            <a href="{% url 'login' %}">
+                вход
+            </a>
+        {% endif %}
     </li>
 
 </ul>

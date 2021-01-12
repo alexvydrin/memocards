@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Теги
+    Карточка
 {% endblock %}
 
 {% block menu %}
@@ -11,12 +11,14 @@
 
 {% block content %}
     <hr>
-    <h1>Теги</h1>
+    <h1>{{ title }}</h1>
     <hr>
 
-    {% for object in object_list %}
-        <a href="{% url 'tag_detail' pk=object.pk %}">{{ object.name }}</a>
-        <br>
-    {% endfor %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
 
 {% endblock %}

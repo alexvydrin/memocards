@@ -14,8 +14,11 @@
     <h1>Карточки</h1>
     <hr>
 
-    {% for card in cards %}
-        <a href="#">{{card.name}}</a>
+    <a href="{% url 'card_new' %}">Добавить новую карточку</a>
+    <hr>
+
+    {% for object in object_list %}
+        <a href="{% url 'card_detail' pk=object.pk %}">{{ object.name }}</a>
         <br>
     {% endfor %}
 

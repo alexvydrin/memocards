@@ -87,7 +87,7 @@ if os.path.exists(FILE_DB_POSTGRE):
         db = json.load(f)
         DATABASES = {
             'default': {
-                'NAME': 'geekshop',
+                'NAME': 'memocards',
                 'ENGINE': 'django.db.backends.postgresql',
                 'USER': 'alex',
                 'PASSWORD': db['PASSWORD'],
