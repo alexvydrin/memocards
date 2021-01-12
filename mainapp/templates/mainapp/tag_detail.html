@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Тег
+{% endblock %}
+
+{% block menu %}
+    {% include 'mainapp/inc_main_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <h1>Тег</h1>
+    <hr>
+
+    <h2>{{ object.name }}</h2>
+
+    <p>здесь будет список карточек с этим тегом</p>
+
+    <br>
+    <p>Автор: {{ object.user }}</p>
+    <p>Создано: {{ object.created|date:"d-E-Y P" }}</p>
+    <p>Изменено: {{ object.edited|date:"d-E-Y P" }}</p>
+
+{% endblock %}

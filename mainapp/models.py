@@ -16,6 +16,7 @@ class Card(models.Model):
         db_index=True)
     created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
     edited = models.DateTimeField(verbose_name='изменен', auto_now=True)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='автор', null=True)
 
     def __str__(self):
         return str(self.name)
@@ -33,6 +34,7 @@ class Tag(models.Model):
         db_index=True)
     created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
     edited = models.DateTimeField(verbose_name='изменен', auto_now=True)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='автор', null=True)
 
     def __str__(self):
         return str(self.name)

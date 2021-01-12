@@ -1,0 +1,34 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Карточка
+{% endblock %}
+
+{% block menu %}
+    {% include 'mainapp/inc_main_menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+
+    <hr>
+    <h1>Карточка</h1>
+    <hr>
+
+    <a href="{% url 'card_edit' pk=object.pk %}">Изменить карточку</a>
+    /
+    <a href="{% url 'card_delete' pk=object.pk %}">Удалить карточку</a>
+
+    <hr>
+    <h1>{{ object.name }}</h1>
+    <hr>
+
+    <p>{{ object.content|linebreaks }}</p>
+
+    <br>
+    <p>Автор: {{ object.user }}</p>
+    <p>Создано: {{ object.created|date:"d-E-Y P" }}</p>
+    <p>Изменено: {{ object.edited|date:"d-E-Y P" }}</p>
+
+{% endblock %}

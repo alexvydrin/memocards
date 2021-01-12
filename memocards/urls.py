@@ -19,7 +19,28 @@ import mainapp.views as mainapp  # импорт модуля views.py из пр�
 
 urlpatterns = [
     path('', mainapp.main, name='main'),
-    path('cards/', mainapp.cards, name='cards'),
-    path('tags/', mainapp.tags, name='tags'),
+
+    # path('cards/', mainapp.cards, name='cards'),
+    path('cards/', mainapp.CardsListView.as_view(), name='cards'),
+
+    # path('cards/<int:pk>/', mainapp.card_detail, name='card_detail'),
+    path('cards/<int:pk>/', mainapp.CardDetailView.as_view(), name='card_detail'),
+
+    # path('cards/new/', mainapp.card_new, name='card_new'),
+    path('cards/new/', mainapp.ClassCreateView.as_view(), name='card_new'),
+
+    # path('cards/<int:pk>/edit/', mainapp.card_edit, name='card_edit'),
+    path('cards/<int:pk>/edit/', mainapp.CardUpdateView.as_view(), name='card_edit'),
+
+    path('cards/delete/<int:pk>/', mainapp.CardDeleteView.as_view(), name='card_delete'),
+
+    # path('tags/', mainapp.tags, name='tags'),
+    path('tags/', mainapp.TagsListView.as_view(), name='tags'),
+
+    path('tags/<int:pk>/', mainapp.TagDetailView.as_view(), name='tag_detail'),
+
     path('admin/', admin.site.urls),
+
+    path('accounts/login/', mainapp.LoginView.as_view(), name="login"),
+
 ]

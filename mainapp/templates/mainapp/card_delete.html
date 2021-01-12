@@ -1,0 +1,19 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Удаление карточки
+{% endblock %}
+
+{% block content %}
+
+    Уверены, что хотите удалить карточку <strong>{{ object.name }}</strong>?
+    <form action="{% url 'card_delete' object.pk %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-danger" type="submit" value="удалить">
+    </form>
+    <button class="btn btn-success">
+        <a href="{% url 'cards' %}">отмена</a>
+    </button>
+
+{% endblock %}

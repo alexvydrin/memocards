@@ -8,3 +8,4 @@ db.sqlite3
 /media/*
 .idea
 /env.json
+/db_postgre.json
