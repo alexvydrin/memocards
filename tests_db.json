@@ -1,0 +1,66 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "",
+        "last_login": "2021-01-12T16:47:44.320Z",
+        "is_superuser": true,
+        "username": "test",
+        "first_name": "",
+        "last_name": "",
+        "email": "test@mail.ru",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-01-02T21:59:58.375Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "mainapp.card",
+    "pk": 1,
+    "fields": {
+        "name": "тест 1",
+        "content": "тест 1 бла бла бла",
+        "is_active": true,
+        "created": "2021-01-02T22:10:08.058Z",
+        "edited": "2021-01-10T13:07:35.742Z",
+        "user": 1
+    }
+},
+{
+    "model": "mainapp.card",
+    "pk": 2,
+    "fields": {
+        "name": "тест 2",
+        "content": "тест 2 бла бла бла",
+       "is_active": true,
+        "created": "2021-01-02T22:10:58.158Z",
+        "edited": "2021-01-10T13:07:13.328Z",
+        "user": 1
+    }
+},
+{
+    "model": "mainapp.tag",
+    "pk": 1,
+    "fields": {
+        "name": "test tag 1",
+        "is_active": true,
+        "created": "2021-01-02T23:27:47.609Z",
+        "edited": "2021-01-02T23:27:47.609Z",
+        "user": null
+    }
+},
+{
+    "model": "mainapp.tag",
+    "pk": 2,
+    "fields": {
+        "name": "test tag 2",
+        "is_active": true,
+        "created": "2021-01-02T23:27:59.695Z",
+        "edited": "2021-01-02T23:27:59.695Z",
+        "user": null
+    }
+}
+]

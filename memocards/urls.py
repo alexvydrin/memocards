@@ -25,14 +25,14 @@ urlpatterns = [
     path('cards/<int:pk>/', mainapp.CardDetailView.as_view(), name='card_detail'),
     path('cards/new/', mainapp.CardCreateView.as_view(), name='card_new'),
     path('cards/<int:pk>/edit/', mainapp.CardUpdateView.as_view(), name='card_edit'),
-    path('cards/delete/<int:pk>/', mainapp.CardDeleteView.as_view(), name='card_delete'),
+    path('cards/<int:pk>/delete/', mainapp.CardDeleteView.as_view(), name='card_delete'),
 
     # Tag - Теги - CBV CRUD:
     path('tags/', mainapp.TagsListView.as_view(), name='tags'),
     path('tags/<int:pk>/', mainapp.TagDetailView.as_view(), name='tag_detail'),
     path('tags/new/', mainapp.TagCreateView.as_view(), name='tag_new'),
     path('tags/<int:pk>/edit/', mainapp.TagUpdateView.as_view(), name='tag_edit'),
-    path('tags/delete/<int:pk>/', mainapp.TagDeleteView.as_view(), name='tag_delete'),
+    path('tags/<int:pk>/delete/', mainapp.TagDeleteView.as_view(), name='tag_delete'),
 
     path('admin/', admin.site.urls),
     path('accounts/login/', mainapp.LoginView.as_view(), name="login"),
