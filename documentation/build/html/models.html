@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Модели проекта &#8212; документация MEMO CARDS 0.1</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Контроллеры" href="views.html" />
+    <link rel="prev" title="Документация проекта MEMOCARDS" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>Модели проекта<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="card">
+<h2>Card - Карточка<a class="headerlink" href="#card" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt id="mainapp.models.Card">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.models.</code><code class="sig-name descname">Card</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.models.Card" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Карточка</p>
+<dl class="py exception">
+<dt id="mainapp.models.Card.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#mainapp.models.Card.DoesNotExist" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="mainapp.models.Card.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#mainapp.models.Card.MultipleObjectsReturned" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Card.content">
+<code class="sig-name descname">content</code><a class="headerlink" href="#mainapp.models.Card.content" title="Ссылка на это определение">¶</a></dt>
+<dd><p>контент, содержимое карточки</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Card.created">
+<code class="sig-name descname">created</code><a class="headerlink" href="#mainapp.models.Card.created" title="Ссылка на это определение">¶</a></dt>
+<dd><p>дата и время создания карточки</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Card.edited">
+<code class="sig-name descname">edited</code><a class="headerlink" href="#mainapp.models.Card.edited" title="Ссылка на это определение">¶</a></dt>
+<dd><p>дата и время последнего изменения карточки</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Card.is_active">
+<code class="sig-name descname">is_active</code><a class="headerlink" href="#mainapp.models.Card.is_active" title="Ссылка на это определение">¶</a></dt>
+<dd><p>True - карточка активна
+False - карточка удалена</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Card.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#mainapp.models.Card.name" title="Ссылка на это определение">¶</a></dt>
+<dd><p>наименование карточки</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Card.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#mainapp.models.Card.user" title="Ссылка на это определение">¶</a></dt>
+<dd><p>автор карточки</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tag">
+<h2>Tag - Тег<a class="headerlink" href="#tag" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt id="mainapp.models.Tag">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.models.</code><code class="sig-name descname">Tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.models.Tag" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Тег</p>
+<dl class="py exception">
+<dt id="mainapp.models.Tag.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#mainapp.models.Tag.DoesNotExist" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="mainapp.models.Tag.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#mainapp.models.Tag.MultipleObjectsReturned" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Tag.created">
+<code class="sig-name descname">created</code><a class="headerlink" href="#mainapp.models.Tag.created" title="Ссылка на это определение">¶</a></dt>
+<dd><p>дата и время создания тега</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Tag.edited">
+<code class="sig-name descname">edited</code><a class="headerlink" href="#mainapp.models.Tag.edited" title="Ссылка на это определение">¶</a></dt>
+<dd><p>дата и время последнего изменения тега</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Tag.is_active">
+<code class="sig-name descname">is_active</code><a class="headerlink" href="#mainapp.models.Tag.is_active" title="Ссылка на это определение">¶</a></dt>
+<dd><p>True - тег активен
+False - тег удален</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Tag.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#mainapp.models.Tag.name" title="Ссылка на это определение">¶</a></dt>
+<dd><p>наименование тега</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.Tag.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#mainapp.models.Tag.user" title="Ссылка на это определение">¶</a></dt>
+<dd><p>автор тега</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MEMO CARDS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Модели проекта</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#card">Card - Карточка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tag">Tag - Тег</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Контроллеры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Тесты</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="предыдущая глава">Документация проекта MEMOCARDS</a></li>
+      <li>Next: <a href="views.html" title="следующая глава">Контроллеры</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, alex vydrin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

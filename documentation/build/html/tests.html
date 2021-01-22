@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тесты &#8212; документация MEMO CARDS 0.1</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="Контроллеры" href="views.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>Тесты<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<dl class="py class">
+<dt id="mainapp.tests.TestMainappSmoke">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.tests.</code><code class="sig-name descname">TestMainappSmoke</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Проверка работособности</p>
+<dl class="py method">
+<dt id="mainapp.tests.TestMainappSmoke.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke.setUp" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Предустановка, подготовка к тестам</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.tests.TestMainappSmoke.tearDown">
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke.tearDown" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Приборка после тестов</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.tests.TestMainappSmoke.test_card">
+<code class="sig-name descname">test_card</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke.test_card" title="Ссылка на это определение">¶</a></dt>
+<dd><p>CRUD Card</p>
+<p>создание, чтение, изменение</p>
+<p>(удаление не тестируем так как это фактически изменение поля is_active)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.tests.TestMainappSmoke.test_tag">
+<code class="sig-name descname">test_tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke.test_tag" title="Ссылка на это определение">¶</a></dt>
+<dd><p>CRUD Tag</p>
+<p>создание, чтение, изменение</p>
+<p>(удаление не тестируем так как это фактически изменение поля is_active)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.tests.TestMainappSmoke.test_urls_if_logged_in">
+<code class="sig-name descname">test_urls_if_logged_in</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke.test_urls_if_logged_in" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Проверяем возможность открытия всех страниц,
+доступных только с авторизацией</p>
+<p>Сначала пытаемся открыть эти страницы без авторизации.
+Должна быть автоматическая переадресация на страницу логина</p>
+<ul class="simple">
+<li><p>Страница добавления новой карточки: „/cards/new/“</p></li>
+<li><p>Страница добавления нового тега: „/tags/new/“</p></li>
+<li><p>Пытаемся зайти на страницу изменения каждой карточки: „/cards/{card.pk}/edit/“</p></li>
+<li><p>Пытаемся зайти на страницу удаления каждой карточки: „/cards/{card.pk}/delete/“</p></li>
+<li><p>Пытаемся зайти на страницу изменения каждого тега: „/cards/{card.pk}/edit/“</p></li>
+<li><p>Пытаемся зайти на страницу удаления каждого тега: „/cards/{card.pk}/delete/“</p></li>
+</ul>
+<p>Затем логинимся</p>
+<p>И снова пробуем зайти на все эти страницы, но уже залогиненные</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.tests.TestMainappSmoke.test_urls_if_not_logged_in">
+<code class="sig-name descname">test_urls_if_not_logged_in</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.tests.TestMainappSmoke.test_urls_if_not_logged_in" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Проверяем возможность открытия всех страниц,
+доступных без авторизации:</p>
+<ul class="simple">
+<li><p>Главная страница: „/“</p></li>
+<li><p>Карточки: „/cards/“</p></li>
+<li><p>Теги: „/tags/“</p></li>
+<li><p>Страница авторизации: „/accounts/login/“</p></li>
+<li><dl class="simple">
+<dt>Просмотр всех записей в БД (card, tag)</dt><dd><ul>
+<li><p>Каждая карточка в БД: „/cards/{card.pk}/“</p></li>
+<li><p>Каждый тег в БД: „/tags/{tag.pk}/“</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MEMO CARDS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="models.html">Модели проекта</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Контроллеры</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Тесты</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="views.html" title="предыдущая глава">Контроллеры</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, alex vydrin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tests.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
