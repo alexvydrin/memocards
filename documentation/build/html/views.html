@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контроллеры &#8212; документация MEMO CARDS 0.1</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Тесты" href="tests.html" />
+    <link rel="prev" title="Модели проекта" href="models.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mainapp.views">
+<span id="id1"></span><h1>Контроллеры<a class="headerlink" href="#module-mainapp.views" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Контроллеры (Views)</p>
+<p><strong>Card - Карточки - CBV CRUD:</strong></p>
+<ul class="simple">
+<li><p>CardListView</p></li>
+<li><p>CardDetailView</p></li>
+<li><p>CardCreateView</p></li>
+<li><p>CardUpdateView</p></li>
+<li><p>CardDeleteView</p></li>
+</ul>
+<p><strong>Tag - Теги - CBV CRUD:</strong></p>
+<ul class="simple">
+<li><p>TagListView</p></li>
+<li><p>TagDetailView</p></li>
+<li><p>TagCreateView</p></li>
+<li><p>TagUpdateView</p></li>
+<li><p>TagDeleteView</p></li>
+</ul>
+<dl class="py class">
+<dt id="mainapp.views.CardCreateView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardCreateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardCreateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Добавление новой карточки</p>
+<dl class="py method">
+<dt id="mainapp.views.CardCreateView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardCreateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.CardCreateView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardCreateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardCreateView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardCreateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Card" title="mainapp.models.Card"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Card</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardDeleteView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardDeleteView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardDeleteView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаление карточки</p>
+<dl class="py method">
+<dt id="mainapp.views.CardDeleteView.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardDeleteView.delete" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Call the delete() method on the fetched object and then redirect to the
+success URL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardDeleteView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardDeleteView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Card" title="mainapp.models.Card"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Card</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardDetailView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardDetailView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardDetailView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Просмотр выбранной карточки</p>
+<dl class="py attribute">
+<dt id="mainapp.views.CardDetailView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardDetailView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Card" title="mainapp.models.Card"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Card</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardListView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardListView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardListView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Просмотр списка карточек</p>
+<dl class="py method">
+<dt id="mainapp.views.CardListView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardListView.get_queryset" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardListView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardListView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Card" title="mainapp.models.Card"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Card</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardUpdateView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardUpdateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardUpdateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Изменение карточки</p>
+<dl class="py method">
+<dt id="mainapp.views.CardUpdateView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardUpdateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.CardUpdateView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardUpdateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardUpdateView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardUpdateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Card" title="mainapp.models.Card"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Card</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.LoginView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">LoginView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.LoginView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Регистрация пользователя</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.TagCreateView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">TagCreateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagCreateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Добавление нового тега</p>
+<dl class="py method">
+<dt id="mainapp.views.TagCreateView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagCreateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.TagCreateView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagCreateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.TagCreateView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.TagCreateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Tag" title="mainapp.models.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Tag</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.TagDeleteView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">TagDeleteView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagDeleteView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаление тега</p>
+<dl class="py method">
+<dt id="mainapp.views.TagDeleteView.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagDeleteView.delete" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Call the delete() method on the fetched object and then redirect to the
+success URL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.TagDeleteView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.TagDeleteView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Tag" title="mainapp.models.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Tag</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.TagDetailView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">TagDetailView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagDetailView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Просмотр выбранного тега</p>
+<dl class="py attribute">
+<dt id="mainapp.views.TagDetailView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.TagDetailView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Tag" title="mainapp.models.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Tag</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.TagUpdateView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">TagUpdateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagUpdateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Изменение тега</p>
+<dl class="py method">
+<dt id="mainapp.views.TagUpdateView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagUpdateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.TagUpdateView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagUpdateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.TagUpdateView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.TagUpdateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Tag" title="mainapp.models.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Tag</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.TagsListView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">TagsListView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagsListView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Просмотр списка тегов</p>
+<dl class="py method">
+<dt id="mainapp.views.TagsListView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.TagsListView.get_queryset" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.TagsListView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.TagsListView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Tag" title="mainapp.models.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Tag</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="mainapp.views.main">
+<code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.main" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Главная страница</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MEMO CARDS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="models.html">Модели проекта</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Контроллеры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Тесты</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="models.html" title="предыдущая глава">Модели проекта</a></li>
+      <li>Next: <a href="tests.html" title="следующая глава">Тесты</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, alex vydrin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/views.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

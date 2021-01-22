@@ -1,4 +1,22 @@
-"""Контроллеры (Views)"""
+"""
+Контроллеры (Views)
+
+**Card - Карточки - CBV CRUD:**
+
+- CardListView
+- CardDetailView
+- CardCreateView
+- CardUpdateView
+- CardDeleteView
+
+**Tag - Теги - CBV CRUD:**
+
+- TagListView
+- TagDetailView
+- TagCreateView
+- TagUpdateView
+- TagDeleteView
+"""
 from django.shortcuts import redirect, render  # get_object_or_404, import redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -18,6 +36,11 @@ def main(request):
     return render(request, 'mainapp/index.html')
 
 
+# def documentation(request):
+#    """Документация проекта"""
+#    такой способ запуска не получился
+#    return render(request, 'mainapp/sphinx_html/index.html')
+
 class LoginView(TemplateView):
     """Регистрация пользователя"""
     template_name = "mainapp/login.html"
@@ -35,14 +58,6 @@ class LoginView(TemplateView):
             context['error'] = "Логин или пароль неправильные"
 
         return render(request, self.template_name, context)
-
-
-# Card - Карточки - CBV CRUD:
-# - CardListView
-# - CardDetailView
-# - CardCreateView
-# - CardUpdateView
-# - CardDeleteView
 
 
 class CardListView(ListView):  # pylint: disable=too-many-ancestors
@@ -127,14 +142,6 @@ class CardDeleteView(DeleteView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-
-
-# Tag - Теги - CBV CRUD:
-# - TagListView
-# - TagDetailView
-# - TagCreateView
-# - TagUpdateView
-# - TagDeleteView
 
 
 class TagsListView(ListView):  # pylint: disable=too-many-ancestors

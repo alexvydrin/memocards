@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Настройки в отдельном файле
 # if os.path.exists('env.json'):  # файл с настройками должен существовать
 # всегда
-with open('env.json', 'r') as f:
+with open(BASE_DIR / 'env.json', 'r') as f:
     ENV = json.load(f)
     # SECURITY WARNING: don't run with debug turned on in production!
     SECRET_KEY = ENV['SECRET_KEY']

@@ -36,4 +36,5 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('accounts/login/', mainapp.LoginView.as_view(), name="login"),
+    # path('documentation/', mainapp.documentation, name='documentation'),
 ]
