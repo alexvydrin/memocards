@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Привязки тега к карточке
+{% endblock %}
+
+{% block menu %}
+    {% include 'mainapp/inc_main_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <h1>Привязки тега к карточке</h1>
+    <hr>
+
+    <a href="{% url 'card_tag_new' %}">Добавить новую привязку</a>
+    <hr>
+
+    {% for object in object_list %}
+        <a href="{% url 'card_tag_detail' pk=object.pk %}">{{ object.card.name }} <--> {{ object.tag.name }}</a>
+        <br>
+    {% endfor %}
+
+{% endblock %}

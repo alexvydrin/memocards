@@ -16,6 +16,15 @@
 - TagCreateView
 - TagUpdateView
 - TagDeleteView
+
+**CardTag - Привязки тега к карточке - CBV CRUD:**
+
+- CardTagListView
+- CardTagDetailView
+- CardTagCreateView
+- CardTagUpdateView
+- CardTagDeleteView
+
 """
 from django.shortcuts import redirect, render  # get_object_or_404, import redirect
 from django.views.generic.list import ListView
@@ -28,7 +37,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from .models import Card, Tag  # from .forms import CardForm
+from .models import Card, Tag, CardTag
+from .forms import CardTagForm
 
 
 def main(request):
@@ -208,6 +218,88 @@ class TagDeleteView(DeleteView):
     model = Tag
     template_name = 'mainapp/tag_delete.html'
     success_url = reverse_lazy('tags')
+
+    def __init__(self, *args, **kwargs):
+        # self.object потом переопределим в def delete
+        # (без определения всех атрибутов в __init__ ругаются линтеры)
+        self.object = None
+        super().__init__(*args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+class CardTagListView(ListView):  # pylint: disable=too-many-ancestors
+    """Просмотр списка привязок тегов к карточкам"""
+    model = CardTag
+    template_name = 'mainapp/card_tag_list.html'
+
+    def get_queryset(self):
+        filtered_list = self.model.objects.filter(
+                is_active=True).order_by('card')
+        return filtered_list
+
+
+class CardTagDetailView(DetailView):
+    """Просмотр выбранной привязки тега к карточке"""
+    model = CardTag
+    template_name = 'mainapp/card_tag_detail.html'
+
+
+class CardTagCreateView(CreateView):
+    """Добавление новой привязки тега к карточке"""
+    model = CardTag
+    template_name = 'mainapp/card_tag_edit.html'
+    success_url = reverse_lazy('card_tag')
+    form_class = CardTagForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Добавление новой привязки'
+        return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+class CardTagUpdateView(UpdateView):
+    """Изменение привязки тега к карточке"""
+    model = CardTag
+    template_name = 'mainapp/card_tag_edit.html'
+    success_url = reverse_lazy('card_tag')
+    form_class = CardTagForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Изменение привязки'
+        return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+
+class CardTagDeleteView(DeleteView):
+    """Удаление привязки"""
+    model = CardTag
+    template_name = 'mainapp/card_tag_delete.html'
+    success_url = reverse_lazy('card_tag')
 
     def __init__(self, *args, **kwargs):
         # self.object потом переопределим в def delete

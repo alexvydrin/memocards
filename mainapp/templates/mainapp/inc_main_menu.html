@@ -19,6 +19,18 @@
     </li>
 
     <li>
+        <a href="{% url 'card_tag' %}">
+            Привязки тегов
+        </a>
+    </li>
+
+    <li>
+        <a href="http://138.197.184.173/html/">
+            Документация проекта
+        </a>
+    </li>
+
+    <li>
         {% if user.is_authenticated %}
             пользователь: [{{ user }}]
         {% else %}

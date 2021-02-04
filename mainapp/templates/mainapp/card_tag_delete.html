@@ -1,0 +1,19 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Удаление привязки
+{% endblock %}
+
+{% block content %}
+
+    Уверены, что хотите удалить привязку <strong>{{ object }}</strong>?
+    <form action="{% url 'card_tag_delete' object.pk %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-danger" type="submit" value="удалить">
+    </form>
+    <button class="btn btn-success">
+        <a href="{% url 'card_tag' %}">отмена</a>
+    </button>
+
+{% endblock %}
