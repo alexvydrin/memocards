@@ -16,7 +16,7 @@ class Card(models.Model):
         verbose_name='актив',
         default=True,
         db_index=True)
-    """    
+    """
     True - карточка активна
     False - карточка удалена
     """
@@ -24,7 +24,11 @@ class Card(models.Model):
     """дата и время создания карточки"""
     edited = models.DateTimeField(verbose_name='изменен', auto_now=True)
     """дата и время последнего изменения карточки"""
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='автор', null=True)
+    user = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+        verbose_name='автор',
+        null=True)
     """автор карточки"""
 
     def __str__(self):
@@ -42,7 +46,7 @@ class Tag(models.Model):
         verbose_name='актив',
         default=True,
         db_index=True)
-    """    
+    """
     True - тег активен
     False - тег удален
     """
@@ -50,8 +54,41 @@ class Tag(models.Model):
     """дата и время создания тега"""
     edited = models.DateTimeField(verbose_name='изменен', auto_now=True)
     """дата и время последнего изменения тега"""
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='автор', null=True)
+    user = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+        verbose_name='автор',
+        null=True)
     """автор тега"""
 
     def __str__(self):
         return str(self.name)
+
+
+class CardTag(models.Model):
+    """Привязка тега к карточке"""
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
+    """карточка"""
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    """тег"""
+    is_active = models.BooleanField(
+        verbose_name='актив',
+        default=True,
+        db_index=True)
+    """
+    True - привязка активна
+    False - привязка удалена
+    """
+    created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
+    """дата и время создания привязки"""
+    edited = models.DateTimeField(verbose_name='изменен', auto_now=True)
+    """дата и время последнего изменения привязки"""
+    user = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+        verbose_name='автор',
+        null=True)
+    """автор привязки"""
+
+    def __str__(self):
+        return f"{str(self.card.name)} <--> {str(self.tag.name)}"

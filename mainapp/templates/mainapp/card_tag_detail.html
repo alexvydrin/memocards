@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Привязка тега к карточке
+{% endblock %}
+
+{% block menu %}
+    {% include 'mainapp/inc_main_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <h1>Привязка тега к карточке</h1>
+    <hr>
+
+    <a href="{% url 'card_tag_edit' pk=object.pk %}">Изменить привязку</a>
+    /
+    <a href="{% url 'card_tag_delete' pk=object.pk %}">Удалить привязку</a>
+
+    <hr>
+    <h2>{{ object }}</h2>
+    <hr>
+
+    <br>
+    <p>Автор: {{ object.user }}</p>
+    <p>Создано: {{ object.created|date:"d-E-Y P" }}</p>
+    <p>Изменено: {{ object.edited|date:"d-E-Y P" }}</p>
+
+{% endblock %}

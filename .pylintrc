@@ -1,3 +1,2 @@
 [MASTER]
 extension-pkg-whitelist=PyQt5
---load-plugins pylint_django

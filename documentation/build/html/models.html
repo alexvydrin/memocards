@@ -141,6 +141,62 @@ False - тег удален</p>
 </dd></dl>
 
 </div>
+<div class="section" id="cardtag">
+<h2>CardTag - Привязка тега к карточке<a class="headerlink" href="#cardtag" title="Ссылка на этот заголовок">¶</a></h2>
+<dl class="py class">
+<dt id="mainapp.models.CardTag">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.models.</code><code class="sig-name descname">CardTag</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.models.CardTag" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Привязка тега к карточке</p>
+<dl class="py exception">
+<dt id="mainapp.models.CardTag.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#mainapp.models.CardTag.DoesNotExist" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt id="mainapp.models.CardTag.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#mainapp.models.CardTag.MultipleObjectsReturned" title="Ссылка на это определение">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.CardTag.card">
+<code class="sig-name descname">card</code><a class="headerlink" href="#mainapp.models.CardTag.card" title="Ссылка на это определение">¶</a></dt>
+<dd><p>карточка</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.CardTag.created">
+<code class="sig-name descname">created</code><a class="headerlink" href="#mainapp.models.CardTag.created" title="Ссылка на это определение">¶</a></dt>
+<dd><p>дата и время создания привязки</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.CardTag.edited">
+<code class="sig-name descname">edited</code><a class="headerlink" href="#mainapp.models.CardTag.edited" title="Ссылка на это определение">¶</a></dt>
+<dd><p>дата и время последнего изменения привязки</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.CardTag.is_active">
+<code class="sig-name descname">is_active</code><a class="headerlink" href="#mainapp.models.CardTag.is_active" title="Ссылка на это определение">¶</a></dt>
+<dd><p>True - привязка активна
+False - привязка удалена</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.CardTag.tag">
+<code class="sig-name descname">tag</code><a class="headerlink" href="#mainapp.models.CardTag.tag" title="Ссылка на это определение">¶</a></dt>
+<dd><p>тег</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.models.CardTag.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#mainapp.models.CardTag.user" title="Ссылка на это определение">¶</a></dt>
+<dd><p>автор привязки</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -165,6 +221,7 @@ False - тег удален</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Модели проекта</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#card">Card - Карточка</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tag">Tag - Тег</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cardtag">CardTag - Привязка тега к карточке</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="views.html">Контроллеры</a></li>

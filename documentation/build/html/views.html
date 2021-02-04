@@ -52,6 +52,14 @@
 <li><p>TagUpdateView</p></li>
 <li><p>TagDeleteView</p></li>
 </ul>
+<p><strong>CardTag - Привязки тега к карточке - CBV CRUD:</strong></p>
+<ul class="simple">
+<li><p>CardTagListView</p></li>
+<li><p>CardTagDetailView</p></li>
+<li><p>CardTagCreateView</p></li>
+<li><p>CardTagUpdateView</p></li>
+<li><p>CardTagDeleteView</p></li>
+</ul>
 <dl class="py class">
 <dt id="mainapp.views.CardCreateView">
 <em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardCreateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardCreateView" title="Ссылка на это определение">¶</a></dt>
@@ -123,6 +131,117 @@ success URL.</p>
 <dt id="mainapp.views.CardListView.model">
 <code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardListView.model" title="Ссылка на это определение">¶</a></dt>
 <dd><p>alias of <a class="reference internal" href="models.html#mainapp.models.Card" title="mainapp.models.Card"><code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.Card</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardTagCreateView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardTagCreateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagCreateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Добавление новой привязки тега к карточке</p>
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagCreateView.form_class">
+<code class="sig-name descname">form_class</code><a class="headerlink" href="#mainapp.views.CardTagCreateView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.forms.CardTagForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.CardTagCreateView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagCreateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.CardTagCreateView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagCreateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagCreateView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardTagCreateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.CardTag</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardTagDeleteView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardTagDeleteView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagDeleteView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаление привязки</p>
+<dl class="py method">
+<dt id="mainapp.views.CardTagDeleteView.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagDeleteView.delete" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Call the delete() method on the fetched object and then redirect to the
+success URL.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagDeleteView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardTagDeleteView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.CardTag</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardTagDetailView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardTagDetailView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagDetailView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Просмотр выбранной привязки тега к карточке</p>
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagDetailView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardTagDetailView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.CardTag</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardTagListView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardTagListView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagListView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Просмотр списка привязок тегов к карточкам</p>
+<dl class="py method">
+<dt id="mainapp.views.CardTagListView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagListView.get_queryset" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagListView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardTagListView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.CardTag</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="mainapp.views.CardTagUpdateView">
+<em class="property">class </em><code class="sig-prename descclassname">mainapp.views.</code><code class="sig-name descname">CardTagUpdateView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagUpdateView" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Изменение привязки тега к карточке</p>
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagUpdateView.form_class">
+<code class="sig-name descname">form_class</code><a class="headerlink" href="#mainapp.views.CardTagUpdateView.form_class" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.forms.CardTagForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.CardTagUpdateView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagUpdateView.form_valid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mainapp.views.CardTagUpdateView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.CardTagUpdateView.get_context_data" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Insert the form into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="mainapp.views.CardTagUpdateView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#mainapp.views.CardTagUpdateView.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">mainapp.models.CardTag</span></code></p>
 </dd></dl>
 
 </dd></dl>

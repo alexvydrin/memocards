@@ -34,6 +34,13 @@ urlpatterns = [
     path('tags/<int:pk>/edit/', mainapp.TagUpdateView.as_view(), name='tag_edit'),
     path('tags/<int:pk>/delete/', mainapp.TagDeleteView.as_view(), name='tag_delete'),
 
+    # Привязки тега к карточке - CBV CRUD:
+    path('card_tag/', mainapp.CardTagListView.as_view(), name='card_tag'),
+    path('card_tag/<int:pk>/', mainapp.CardTagDetailView.as_view(), name='card_tag_detail'),
+    path('card_tag/new/', mainapp.CardTagCreateView.as_view(), name='card_tag_new'),
+    path('card_tag/<int:pk>/edit/', mainapp.CardTagUpdateView.as_view(), name='card_tag_edit'),
+    path('card_tag/<int:pk>/delete/', mainapp.CardTagDeleteView.as_view(), name='card_tag_delete'),
+
     path('admin/', admin.site.urls),
     path('accounts/login/', mainapp.LoginView.as_view(), name="login"),
     # path('documentation/', mainapp.documentation, name='documentation'),
