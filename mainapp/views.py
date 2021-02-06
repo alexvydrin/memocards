@@ -86,6 +86,11 @@ class CardDetailView(DetailView):
     model = Card
     template_name = 'mainapp/card_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['card_tags'] = CardTag.objects.filter(card=self.object, is_active=True).order_by('tag')
+        return context
+
 
 class CardCreateView(CreateView):
     """Добавление новой карточки"""
@@ -169,6 +174,11 @@ class TagDetailView(DetailView):
     """Просмотр выбранного тега"""
     model = Tag
     template_name = 'mainapp/tag_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['card_tags'] = CardTag.objects.filter(tag=self.object, is_active=True).order_by('card')
+        return context
 
 
 class TagCreateView(CreateView):

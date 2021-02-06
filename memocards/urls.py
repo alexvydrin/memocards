@@ -18,7 +18,8 @@ from django.urls import path
 import mainapp.views as mainapp  # импорт модуля views.py из приложения mainapp
 
 urlpatterns = [
-    path('', mainapp.main, name='main'),
+    # path('', mainapp.main, name='main'),
+    path('', mainapp.TagsListView.as_view(), name='main'),
 
     # Card - Карточки - CBV CRUD:
     path('cards/', mainapp.CardListView.as_view(), name='cards'),
