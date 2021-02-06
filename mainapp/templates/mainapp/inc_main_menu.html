@@ -1,34 +1,39 @@
 <ul class="menu">
 
-    <li>
-        <a href="{% url 'main' %}">
-            Главная страница
-        </a>
-    </li>
-
-    <li>
-        <a href="{% url 'cards' %}">
-            Карточки
-        </a>
-    </li>
-
-    <li>
+    <li {% if request.resolver_match.url_name == 'tags' %} class="active" {% endif %} >
         <a href="{% url 'tags' %}">
             Теги
         </a>
     </li>
 
-    <li>
+    <!--
+     <li % if request.resolver_match.url_name == 'main' % class="active" % endif % >
+        <a href="% url 'main' %">
+            Главная страница
+        </a>
+    </li>
+    -->
+
+    <li {% if request.resolver_match.url_name == 'cards' %} class="active" {% endif %} >
+        <a href="{% url 'cards' %}">
+            Карточки
+        </a>
+    </li>
+
+
+    <li {% if request.resolver_match.url_name == 'card_tag' %} class="active" {% endif %} >
         <a href="{% url 'card_tag' %}">
             Привязки тегов
         </a>
     </li>
 
+    <!--
     <li>
         <a href="http://138.197.184.173/html/">
-            Документация проекта
+            Документация
         </a>
     </li>
+    -->
 
     <li>
         {% if user.is_authenticated %}

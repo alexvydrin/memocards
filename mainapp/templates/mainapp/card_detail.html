@@ -25,8 +25,12 @@
     <p>{{ object.content|linebreaks }}</p>
 
     <br>
-
-    <p>здесь будет список тегов</p>
+    теги:
+    <br>
+    {% for card_tag in card_tags %}
+        <a href="{% url 'tag_detail' pk=card_tag.tag.pk %}">{{ card_tag.tag.name }}</a>
+        <br>
+    {% endfor %}
 
     <br>
     <p>Автор: {{ object.user }}</p>

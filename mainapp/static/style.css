@@ -13,12 +13,12 @@ body {
 .menu li {
     list-style-type: none; /* убрать маркеры списка для меню сайта */
     display: inline;
-    padding: 8px;
+    padding: 20px;
 }
 
 .menu li a {
     color: #8B00FF; /* цвет для ссылок меню сайта */
-    font-size: 2em; /* размер шрифта для ссылок меню сайта */
+    font-size: 1.5em; /* размер шрифта для ссылок меню сайта */
     font-style: italic; /* начертание шрифта для ссылок меню сайта */
     text-decoration-line: none;
 }
@@ -33,7 +33,7 @@ body {
 
 /*блок header*/
 .header{
-	height:70px;
+	height:50px;
     background-repeat: no-repeat;
     background-position: center bottom;
     background-image: url(header.png);
@@ -42,18 +42,27 @@ body {
 /*логотип*/
 .logo{
     float:left;
-    margin:15px 5px 5px 5px;
+    margin:5px 5px 5px 5px;
 }
 
 /*блок footer*/
 .footer{
-	height:70px;
-	background-color: gray;
-	text-align: right;
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    background-color: #999999; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+    text-align: right; /* Выравнивание текста */
 }
 
 .footer p {
     padding: 5px 15px 0 0;
+}
+
+.footer_span {
+    margin-right: 15px;
+    text-decoration: none;
 }
 
 /* поля ввода на форме */

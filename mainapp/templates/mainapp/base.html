@@ -24,8 +24,13 @@
 <body>
 	<div class="container">
         <div class="header">
+
             <div class="logo">
+                <a href="{% url 'tags' %}">
+                    <img src="{% static 'logo.png' %}" alt="logo">
+                </a>
             </div>
+
             {% block menu %}
             {% endblock %}
         </div>
@@ -38,8 +43,16 @@
 
     {% block footer %}
         <div class="footer">
-            <hr>
-            <p> Все права защищены &copy;&nbsp;{% now "Y" %} </p>
+            <p>
+                <a href="http://138.197.184.173/html/" class="footer_span">
+                    Документация проекта
+                </a>
+
+                <a href="https://github.com/alexvydrin/memocards" class="footer_span">
+                    github проекта
+                </a>
+
+            Все права защищены &copy;&nbsp;{% now "Y" %} </p>
         </div>
     {% endblock %}
 
