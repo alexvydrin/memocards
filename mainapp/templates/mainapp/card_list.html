@@ -19,6 +19,13 @@
 
     {% for object in object_list %}
         <a href="{% url 'card_detail' pk=object.pk %}">{{ object.name }}</a>
+        (
+        {% for item in object.cardtag_set.all %}
+            {% if item.is_active %}
+                <a href="{% url 'tag_detail' pk=item.tag.pk %}">{{ item.tag.name }}</a>
+            {% endif %}
+        {% endfor %}
+        )
         <br>
     {% endfor %}
 
