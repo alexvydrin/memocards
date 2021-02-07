@@ -26,7 +26,9 @@
 - CardTagDeleteView
 
 """
-from django.shortcuts import redirect, render  # get_object_or_404, import redirect
+from django.db.models import Count, Q
+# get_object_or_404, import redirect
+from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
@@ -88,7 +90,8 @@ class CardDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['card_tags'] = CardTag.objects.filter(card=self.object, is_active=True).order_by('tag')
+        context['card_tags'] = CardTag.objects.filter(
+            card=self.object, is_active=True).order_by('tag')
         return context
 
 
@@ -165,8 +168,10 @@ class TagsListView(ListView):  # pylint: disable=too-many-ancestors
     template_name = 'mainapp/tag_list.html'
 
     def get_queryset(self):
+        card_count = Count('cardtag', filter=Q(cardtag__is_active=True))
         filtered_list = self.model.objects.filter(
-            is_active=True).order_by('name')
+            is_active=True).annotate(card_count=card_count).order_by('name')
+        # print("sql:", filtered_list.query)
         return filtered_list
 
 
@@ -177,7 +182,8 @@ class TagDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['card_tags'] = CardTag.objects.filter(tag=self.object, is_active=True).order_by('card')
+        context['card_tags'] = CardTag.objects.filter(
+            tag=self.object, is_active=True).order_by('card__name')
         return context
 
 
@@ -253,7 +259,7 @@ class CardTagListView(ListView):  # pylint: disable=too-many-ancestors
 
     def get_queryset(self):
         filtered_list = self.model.objects.filter(
-                is_active=True).order_by('card')
+            is_active=True).order_by('card')
         return filtered_list
 
 
