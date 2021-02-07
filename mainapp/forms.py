@@ -36,5 +36,5 @@ class CardTagForm(forms.ModelForm):
         # Проверим запись на уникальность
         card = cleaned_data.get("card")
         tag = cleaned_data.get("tag")
-        if CardTag.objects.filter(card=card, tag=tag).exists():
+        if CardTag.objects.filter(card=card, tag=tag, is_active=True).exists():
             raise forms.ValidationError("Такая привязка уже существует!")
